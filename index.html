@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner de Site</title>
+</head>
+
+<body>
+    <h1>Scanner de Site</h1>
+    <input type="text" id="siteInput" placeholder="Digite a URL do site">
+    <button onclick="verificarDisponibilidade()">Verificar Disponibilidade</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarDisponibilidade() {
+            const xhr = new XMLHttpRequest();
+            const url = 'https://www.google.com';
+
+            xhr.open('GET', url, true);
+
+            xhr.onreadystatechange = function () {
+                console.log(xhr.status)
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>
